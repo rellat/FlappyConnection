@@ -48,7 +48,7 @@ function draw() {
     }
     var plr_pos = world_to_local(userGameState.pos, worldState.players[j].pos);
     fill(180);
-    rect(plr_pos[0],plr_pos[1],worldState.players[j].size[0],players.obstacles[j].size[1]);
+    rect(plr_pos[0],plr_pos[1],worldState.players[j].size[0],worldState.players[j].size[1]);
   }
   fill(255, 204, 0);
   rect(screen_size[0] / 2, userGameState.pos[1] - 200, userGameState.size[0], userGameState.size[1]);

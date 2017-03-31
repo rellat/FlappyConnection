@@ -67,12 +67,12 @@ io.sockets.on('connection',
 
     // When this user emits, client side: socket.emit('otherevent',some data);
     socket.on('user starts', function(data) {
-        console.log("Received: 'starts' ");
+        //console.log("Received: 'starts' ");
         gameState.userPush(socket);
       }
     );
     socket.on('user flaps', function(data) {
-        console.log("Received: 'flaps' ");
+        //console.log("Received: 'flaps' ");
         gameState.userFlap(socket);
       }
     );
@@ -140,11 +140,13 @@ var gameState = (function(sockets) {
       }
       if(self.players[j].pos[1] > self.map_size[1]) {
         self.players[j].state = 'player_dead';
+        console.log(self.players[j].id + ' touched ground.');
       }
       // collision test -> overlap intersects
       for (var k = 0; k < self.obstacles.length; k++) {
         if(self.intersects(self.players[j].pos,[(self.players[j].pos[0] +self.players[j].size[0]),(self.players[j].pos[1] +self.players[j].size[1])],self.obstacles[k].pos,[(self.obstacles[k].pos[0] + self.obstacles[k].size[0]),(self.obstacles[k].pos[1] +self.obstacles[k].size[1])])) {
           self.players[j].state = 'player_dead';
+          console.log(self.players[j].id + ' touched obstacle.');
         }
       }
     }
@@ -166,7 +168,8 @@ var gameState = (function(sockets) {
 
   //gameState.userConnect = function(user_socket) {  };
   gameState.userPush = function(user_socket) {
-    var pos_x = Math.floor(Math.random() * gameState.map_size[0]);
+    //var pos_x = Math.floor(Math.random() * gameState.map_size[0]);
+    var pos_x = Math.floor(0.5 * gameState.map_size[0]);
     var pos_y = Math.floor(gameState.map_size[1] / 2);
     var size = 20;
     gameState.players.push({
@@ -175,6 +178,7 @@ var gameState = (function(sockets) {
       size : [size, size],
       velocity : [4,0]
     });
+    console.log(user_socket.id + ' has pushed in world.');
   };
   gameState.userFlap = function(user_socket) {
     for (var i = 0; i < gameState.players.length; i++) {
@@ -182,6 +186,7 @@ var gameState = (function(sockets) {
         gameState.players[i].velocity[1] = -6 * gameState.gravity[1];
       }
     }
+    console.log(user_socket.id + ' flapped.');
   };
   gameState.userPop = function(user_socket) {
     for (var i = 0; i < gameState.players.length; i++) {
