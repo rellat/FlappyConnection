@@ -1,6 +1,8 @@
 # FlappyConnection
 FlappyBird like game with online sever
 
+![Flappy Connection Playing](https://github.com/kifhan/FlappyConnection/raw/master/20170402.gif)
+
 Flappy Connection is simple test project with Node.js + Socket.io + P5.js. With those, Flappy Connection make simple web game server for multiple players.
 
 Game shares one world with everyone. When player connect and click, server automatically push a new player to the game world object.
