@@ -11,3 +11,4 @@ Game shares one world with everyone. When player connect and click, server autom
 - Make and emit block unit of world data to each user for needs.
 - 기기 화면 세로 크기가 600px보다 작은 경우 게임이 짤려나온다. 강제로 스케일 조정하기. 
 - Game cut off the screen if the browser size is less then 600px. Make force scale.
+- Make test server and distribute.
