@@ -5,7 +5,7 @@ Flappy Connection is simple test project with Node.js + Socket.io + P5.js. With 
 
 Game shares one world with everyone. When player connect and click, server automatically push a new player to the game world object.
 
-# TODO
+## TODO
 
 - 월드를 블럭 단위로 잘라서 유저별로 필요한 블럭만 보내기. 
 - Make and emit block unit of world data to each user for needs.
