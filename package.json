@@ -1,7 +1,7 @@
 {
   "name": "Flappy Connection",
   "version": "0.0.1",
-  "description": "",
+  "description": "FlappyBird like game with online sever",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
